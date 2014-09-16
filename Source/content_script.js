@@ -38,14 +38,17 @@ function handleText(textNode) {
     // c - 1 = b
     m = String.fromCharCode(p1.charCodeAt(0) - 7);
     b = String.fromCharCode(p2.charCodeAt(0) - 1);
-    return m + "y " + b + "utt";
+    return m + "ordor";
   });
 
   // Deal with private clouds
   v = v.replace(/\b(P|p)rivate (C|c)loud/g, function(match, p1, p2, offset, string) {
     // c - 1 = b
-    b = String.fromCharCode(p2.charCodeAt(0) - 1);
-    return b + "utt";
+    // t - 7 = m
+    // Copying "m" logic above; commenting out 'b' logic
+    //b = String.fromCharCode(p2.charCodeAt(0) - 1);
+    m = String.fromCharCode(p1.charCodeAt(0) - 7);
+    return m + "ordor";
   });
   // Get the corner cases
   if(v.match(/cloud/i)) {
@@ -53,8 +56,12 @@ function handleText(textNode) {
     if(v.match(/PaaS|SaaS|IaaS|computing|data|storage|cluster|distributed|server|hosting|provider|grid|enterprise|provision|apps|hardware|software|/i)) {
       v = v.replace(/(C|c)loud/gi, function(match, p1, offset, string) {
         // c - 1 = b
-        b = String.fromCharCode(p1.charCodeAt(0) - 1);
-        return b + "utt";
+        // t - 7 = m ...you know, I have no idea why the guy did this originally
+        // it makes no sense to me
+        // But then, I don't really know js; I'm just hacking the script to spit out "mordor" instead of "butt"
+        m = String.fromCharCode(p1.charCodeAt(0) - 7);
+        //b = String.fromCharCode(p1.charCodeAt(0) - 1);
+        return m + "ordor";
       });
     }
   }
